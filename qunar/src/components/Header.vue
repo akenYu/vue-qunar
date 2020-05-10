@@ -49,6 +49,4 @@ export default {
       margin-top .28rem
       .arrow-icon
         font-size .24rem
-
-
 </style>

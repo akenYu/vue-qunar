@@ -14,73 +14,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'HomeIcons',
-    data() {
-      return {
-        iconList: [
-          {
-          id: '01',
-          imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/hotel.png',
-          desc: '酒店'
-          },
-          {
-          id: '02',
-          imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/flight.png',
-          desc: '机票'
-          },
-          {
-          id: '03',
-          imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/train.png',
-          desc: '火车票'
-          },
-          {
-          id: '04',
-          imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/package.png',
-          desc: '度假'
-          },
-          {
-          id: '05',
-          imgUrl: 'https://picbed.qunarzz.com/f5e5770393d759578962e53ee67798c8.png',
-          desc: '海外酒店'
-          },
-          {
-          id: '06',
-          imgUrl: 'https://picbed.qunarzz.com/ae617a31e0bd5803d76918b817f6d942.png',
-          desc: '自由行'
-          },
-          {
-          id: '07',
-          imgUrl: 'https://picbed.qunarzz.com/1316dc82d1ce6259686d5a68880e5a9d.png',
-          desc: '攻略'
-          },
-          {
-          id: '08',
-          imgUrl: 'https://picbed.qunarzz.com/a36d2288f19e54562338f4d8ef986288.png',
-          desc: '底价机票'
-          },
-          {
-          id: '09',
-          imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/piao.png',
-          desc: '景点门票'
-          }
-        ]
-      }
-    },
-    computed: {
-      pages() {
-        const pages = []
-        this.iconList.forEach((item, index) => {
-          const page = Math.floor(index / 8)
-          if (!pages[page]) {
-            pages[page] = []
-          }
-          pages[page].push(item)
-        })
-        return pages
-      }
-    },
-  }
+export default {
+  name: 'HomeIcons',
+  props: {
+    list: Array
+  },
+  computed: {
+    pages() {
+      const pages = []
+      this.list.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
+  },
+}
 </script>
 
 <style lang="stylus" scoped>

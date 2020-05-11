@@ -1,11 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOptions">
-      <swiper-slide>
-        <img class="swiper-img" src="https://imgs.qunarzz.com/vc/e3/a1/71/f498dfd3bed948d623c9093252.jpg_92.jpg" alt="img">
-      </swiper-slide>
-      <swiper-slide>
-        <img class="swiper-img" src="https://imgs.qunarzz.com/vc/44/e9/86/95bc36c9e1c06ebd68bdfe222e.jpg_92.jpg" alt="img">
+    <swiper :options="swiperOptions" v-if="show">
+      <swiper-slide v-for="item of list" :key="item.id">
+        <img class="swiper-img" :src="item.imgUrl" alt="img">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -24,6 +21,14 @@ export default {
         loop: true,
         autoplay: true
       }
+    }
+  },
+  props: {
+    list: Array
+  },
+  computed: {
+    show() {
+      return this.list.length
     }
   }
 }

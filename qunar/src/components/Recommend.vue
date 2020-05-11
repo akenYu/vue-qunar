@@ -2,7 +2,7 @@
   <div class="recommend">
     <div class="recomend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key='item.id'>
+      <li class="item border-bottom" v-for="item of list" :key='item.id'>
         <img class="item-img" :src="item.imgUrl" alt="img">
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
@@ -17,36 +17,9 @@
 <script>
   export default {
     name: 'HomeRecommend',
-    data() {
-      return {
-        recommendList: [
-          {
-            id: '01',
-            imgUrl: 'https://imgs.qunarzz.com/sight/p0/2005/39/392f70c14ff4bdaba3.img.jpg_256x144_8d8a790f.jpg',
-            title: '长隆野生动物世界',
-            desc: '熊猫三胞胎，神奇动物夜，与您共享欢乐时光'
-          },
-          {
-            id: '02',
-            imgUrl: 'https://imgs.qunarzz.com/sight/p0/1509/80/9535a0d28468b3c6c910d87f1a4fdbe8.water.jpg_256x144_9444daaa.jpg',
-            title: '岭南印象园',
-            desc: '岭南印象园江面上龙船竞渡，水中好戏不断'
-          },
-          {
-            id: '03',
-            imgUrl: 'https://imgs.qunarzz.com/sight/p0/1603/ee/ee3013caaa28ae7490.water.jpg_256x144_4e91a0fa.jpg',
-            title: '增城白水寨风景名胜区',
-            desc: '北回归线上的瑰丽翡翠'
-          },
-          {
-            id: '04',
-            imgUrl: 'https://img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_256x160_ca478972.jpg',
-            title: '深圳野生动物园',
-            desc: '放养式动物园让你和动物们“零距离”'
-          },
-        ]
-      }
-    },
+    props: {
+      list: Array
+    }
   }
 </script>
 

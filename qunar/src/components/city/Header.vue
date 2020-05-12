@@ -24,6 +24,7 @@ export default {
     color #fff
     background $bgcolor
     font-size .32rem
+    font-weight bold
     .back-icon
       position absolute
       top 0

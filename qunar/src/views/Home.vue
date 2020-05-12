@@ -48,7 +48,6 @@ export default {
         this.iconList = data.iconList
         this.recommendList = data.recommendList
         this.holidayList = data.holidayList
-
       }
     }
   },

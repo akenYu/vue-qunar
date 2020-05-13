@@ -9,22 +9,27 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { mapState } from 'vuex'
 import HomeHeader from '../components/home/Header'
 import HomeSwiper from '../components/home/Swiper'
 import HomeIcons from '../components/home/Icons'
 import HomeRecommend from '../components/home/Recommend'
 import HomeHoliday from '../components/home/Holiday'
-import axios from 'axios'
 
 export default {
   name: 'Home',
   data() {
     return {
+      currentCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
       holidayList: []
     }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   components: {
     HomeHeader,
@@ -35,7 +40,7 @@ export default {
   },
   methods: {
     getHomeInfo() {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc(res) {
@@ -50,7 +55,14 @@ export default {
     }
   },
   mounted() {
+    this.currentCity = this.city
     this.getHomeInfo()
+  },
+  activated() {
+    if (this.currentCity !== this.city) {
+      this.currentCity = this.city
+      this.getHomeInfo()
+    }
   },
 }
 </script>

@@ -12,16 +12,19 @@
         </div>
       </div>
     </div>
-    <detail-gallary 
+    <detail-animation>
+      <detail-gallary 
       :imgs="this.gallaryimgs"
       v-show="showGallary"
       @close="handleBannerClose"
-    />
+      />
+    </detail-animation>
   </div>
 </template>
 
 <script>
 import DetailGallary from './Gallary'
+import DetailAnimation from './Animation'
 export default {
   name: 'DetailBanner',
   data() {
@@ -43,7 +46,8 @@ export default {
     }
   },
   components: {
-    DetailGallary
+    DetailGallary,
+    DetailAnimation
   }
 }
 </script>

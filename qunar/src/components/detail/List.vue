@@ -1,12 +1,12 @@
 <template>
   <div class="list">
-    <div class="item" v-for="(item, index) of list" :key="index">
+    <div class="item" v-for="(item, index) of categorylist" :key="index">
       <div class="item-title">
         <span class="item-title-icon"></span>
         {{ item.title }}
       </div>
       <div v-if="item.children" class="item-children">
-        <detail-list :list="item.children"></detail-list>
+        <detail-list :categorylist="item.children"></detail-list>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
 export default {
   name: 'DetailList',
   props: {
-    list: Array
+    categorylist: Array
   }
 }
 </script>
@@ -33,7 +33,7 @@ export default {
       display inline-block
       width .36rem
       height .36rem
-      background url(http://s.qunarzz.com/piao/image/touch/sight/detail.png) 0 -.45rem no-repeat
+      background url("http://s.qunarzz.com/piao/image/touch/sight/detail.png") 0 -.45rem no-repeat
       margin-right .1rem
       background-size .4rem 3rem
   .item-children

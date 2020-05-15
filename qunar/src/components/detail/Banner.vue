@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p57/201211/08/c42f2e7088a8a11093835fbb.jpg_600x330_fcee2d2d.jpg" alt="img">
+      <img class="banner-img" :src="bannerimg" alt="img">
       <div class="banner-info">
         <div class="banner-title">
-          漓江(AAAAA景区)
+          {{ this.sightname }}
         </div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe75d;</span>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <detail-gallary 
-      :imgs="imgs"
+      :imgs="this.gallaryimgs"
       v-show="showGallary"
       @close="handleBannerClose"
     />
@@ -26,10 +26,13 @@ export default {
   name: 'DetailBanner',
   data() {
     return {
-      showGallary: false,
-      imgs: ['http://img1.qunarzz.com/sight/p57/201211/08/c42f2e7088a8a11093835fbb.jpg_600x330_fcee2d2d.jpg',
-             'http://img1.qunarzz.com/sight/p0/201405/27/6f3e880957993c658adc1226fae21719.jpg_r_800x800_9c14ed0d.jpg']
+      showGallary: false
     }
+  },
+  props: {
+    sightname: String,
+    bannerimg: String,
+    gallaryimgs: Array
   },
   methods: {
     handleBannerClick() {

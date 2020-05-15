@@ -24,13 +24,11 @@ export default {
     color #fff
     background $bgcolor
     font-size .32rem
-    font-weight bold
     .back-icon
       position absolute
       top 0
       left 0
       width .64rem
-      text-align center
       font-size .4rem
       color #fff
 </style>
